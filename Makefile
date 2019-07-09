@@ -28,5 +28,5 @@ apply_deployment: guard_right_env kubernetes_generate_yml
 # the kubernetes cluster name postfix is the environment name
 guard_right_env:
 	@ if [ ! "$$(kubectl config current-context | cut -d"-"  -f5)" = "$(TARGET_ENV)" ]; then  \
-		echo "Missmatch between the target environment the context"; exit 1; \
+		echo "Mismatch between the target environment and the context"; exit 1; \
 	fi;
